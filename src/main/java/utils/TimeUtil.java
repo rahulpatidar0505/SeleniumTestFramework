@@ -1,0 +1,7 @@
+package utils;
+
+public class TimeUtil {
+
+	public final static int DEFAULT_TIME_OUT = 10;
+
+}
