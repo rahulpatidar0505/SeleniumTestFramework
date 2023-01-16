@@ -8,7 +8,6 @@ import factory.DriverFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -79,10 +78,6 @@ public class ExtentReportListener implements ITestListener {
                 result.getMethod().getDescription());
 
         extentTest.assignCategory(result.getTestContext().getSuite().getName());
-        /*
-         * methodName = StringUtils.capitalize(StringUtils.join(StringUtils.
-         * splitByCharacterTypeCamelCase(methodName), StringUtils.SPACE));
-         */
         extentTest.assignCategory(className);
         test.set(extentTest);
         test.get().getModel().setStartTime(getTime(result.getStartMillis()));
@@ -91,14 +86,12 @@ public class ExtentReportListener implements ITestListener {
     public synchronized void onTestSuccess(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " passed!"));
         test.get().pass("Test passed");
-        //test.get().pass(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(getScreenshot()).build());
         test.get().getModel().setEndTime(getTime(result.getEndMillis()));
     }
 
     public synchronized void onTestFailure(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " failed!"));
         String methodName = result.getMethod().getMethodName();
-
         test.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(DriverFactory.getScreenshot()).build());
         test.get().getModel().setEndTime(getTime(result.getEndMillis()));
     }

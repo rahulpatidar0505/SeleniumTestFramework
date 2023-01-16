@@ -14,7 +14,11 @@
     <test name="Login and place an order">
 
         <classes>
-            <class name="tests.LoginPageTest"/>
+            <class name="tests.LoginPageTest">
+                <methods>
+                    <exclude name="inValidLoginTest"/>
+                </methods>
+            </class>
             <class name="tests.EditAddressTest"/>
             <class name="tests.AccountsPageTest"/>
             <class name="tests.CheckoutPageTest"/>

@@ -8,11 +8,8 @@ public class OrderPage {
     private WebDriver driver;
     private ElementUtil eleUtil;
 
-    // 1. private By locators:
-    private By locator_myOrderText = By.xpath("//span[normalize-space()='My Orders']");
     private By orderRowList = By.xpath("//table[@id=\"my-orders-table\"]//tr");
 
-    // 2. page constructor:
     public OrderPage(WebDriver driver) {
         this.driver = driver;
         eleUtil = new ElementUtil(driver);

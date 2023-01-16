@@ -11,7 +11,7 @@ import utils.AppErrors;
 public class CheckoutPageTest extends BaseTest {
 
     @BeforeClass
-    public void accSetup() {
+    public void checkoutSetup() {
         accountPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
         checkoutPage = accountPage.navigateToCheckout();
     }

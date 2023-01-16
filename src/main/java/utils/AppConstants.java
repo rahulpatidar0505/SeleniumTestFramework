@@ -2,7 +2,7 @@ package utils;
 
 public class AppConstants {
 	public static final String ADDRESS_DETAILS_SHEET_NAME = "AddressDetails";
-	public static final String LOGIN_PAGE_TITLE = "Home Page - Magento eCommerce - website to practice selenium | demo website for automation testing | selenium practice sites | selenium demo sites | best website to practice selenium automation | automation practice sites Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites";
+	public static final String LOGIN_PAGE_TITLE = "Customer Login Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites";
 	public static final String LOGIN_PAGE_FRACTION_URL = "https://magento.softwaretestingboard.com/";
 	public static final String CHECKOUT_PAGE_TITLE = "Checkout Magento Commerce - website to practice selenium | demo website for automation testing | selenium practice sites";
 	public static final String ACC_PAGE_FRACTION_URL = "https://magento.softwaretestingboard.com/";

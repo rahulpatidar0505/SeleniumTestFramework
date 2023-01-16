@@ -2,17 +2,15 @@ package tests;
 
 import base.BaseTest;
 import io.qameta.allure.Description;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.LoginPage;
 import utils.AppConstants;
 import utils.AppErrors;
 
 public class AccountsPageTest extends BaseTest {
 	@BeforeClass
-	public void accSetup() {
+	public void accountSetup() {
 		accountPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 

@@ -27,8 +27,6 @@ public class DriverFactory {
 
         highlight = prop.getProperty("highlight");
 
-//        optionsManager = new OptionsManager(prop);
-
         if (browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver());
