@@ -3,7 +3,9 @@ package javaPrograms;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArrayPrograms {
 
@@ -93,6 +95,7 @@ public class ArrayPrograms {
                 }
             }
             System.out.println(a[i]);
+
         }
     }
 
@@ -206,10 +209,27 @@ public class ArrayPrograms {
         for (String element : array) {
             try {
                 int number = Integer.parseInt(element);
-                System.out.println(element + " is a valid integer.");
+                System.out.println(number + " is a valid integer.");
             } catch (NumberFormatException e) {
                 System.out.println(element + " is not a valid integer.");
             }
+        }
+    }
+
+    @Test
+    public static void isDivisibleBy() {
+        int a[] = {1, 2, 3, 5, 15, 18};
+
+        for (int i = 0; i < a.length; i++) {
+            if(a[i]%(3*5)==0){
+                System.out.println(a[i]+" number is divided by both 3 and 5");
+            } else if (a[i]%3==0) {
+                System.out.println(a[i]+" number is divided by 3 only");
+            } else if (a[i]%5==0) {
+                System.out.println(a[i]+" number is divided by 5 only");
+            }
+            else
+                System.out.println(a[i]+" number is not divided by any");
         }
 
     }
