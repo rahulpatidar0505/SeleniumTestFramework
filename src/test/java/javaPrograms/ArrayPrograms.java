@@ -3,9 +3,7 @@ package javaPrograms;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ArrayPrograms {
 
@@ -14,7 +12,7 @@ public class ArrayPrograms {
         int[] a = {3, 7, 2, 3, 1, 44, 31, 7, 44};
 
         for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < a.length; j++) {
+            for (int j = i + 1; j < a.length; j++) { // checking in same array, so will start from next number
                 if (a[i] == a[j]) {
                     System.out.println(a[i]);
                 }
@@ -28,7 +26,7 @@ public class ArrayPrograms {
         int[] b = {7, 8, 1, 10, 44};
 
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < b.length; j++) {
+            for (int j = 0; j < b.length; j++) { // checking in 2 arrays, so will start from 0
                 if (a[i] == b[j]) {
                     System.out.println(a[i]);
                 }
@@ -39,18 +37,18 @@ public class ArrayPrograms {
     @Test()
     public static void RemoveDuplicateFromArray() {
         int[] a = {2, 4, 6, 2, 77, 4};
-        List<Integer> numList = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length; j++) {
+            for (int j = i+1; j < a.length; j++) {
                 if (a[i] != a[j]) {
-                    if (!numList.contains(a[i])) {
-                        numList.add(a[i]);
+                    if (!list.contains(a[i])) {
+                        list.add(a[i]);
                     }
                 }
             }
         }
-        System.out.println(numList);
+        System.out.println(list);
     }
 
     @Test()
@@ -95,7 +93,22 @@ public class ArrayPrograms {
                 }
             }
             System.out.println(a[i]);
+        }
+    }
+    @Test()
+    public static void SortArrayReverseOrder() {
+        int[] a = {3, 7, 2, 9, 1, 44, 31};
 
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] < a[j]) {
+                    int temp;
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+            System.out.println(a[i]);
         }
     }
 
@@ -132,7 +145,7 @@ public class ArrayPrograms {
         int firstNumber = a[0];
 
         for (int i = 1; i < a.length; i++) {
-            if (a[i] == (firstNumber + 1)) {
+            if (a[i] == (firstNumber + 1)) { // addition of "number+1" is next number in sequential array
                 firstNumber = a[i];
             } else {
                 System.out.println("missing = " + (firstNumber + 1));
@@ -204,7 +217,7 @@ public class ArrayPrograms {
 
     @Test
     public static void CheckElementofstringisnumber() {
-        String[] array = { "abc", "123", "xyz" };
+        String[] array = { "abc", "123", "xyz", "2" };
 
         for (String element : array) {
             try {
