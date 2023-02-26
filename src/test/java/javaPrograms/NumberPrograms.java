@@ -83,7 +83,7 @@ public class NumberPrograms {
 
     @Test
     public static void primeNumber() {
-        int num = 10;
+        int num = 37;
         int count = 0;
 
         for (int i = 2; i < num; i++) {

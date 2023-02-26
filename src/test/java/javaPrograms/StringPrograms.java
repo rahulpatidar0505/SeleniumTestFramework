@@ -1,6 +1,7 @@
 package javaPrograms;
 
 import org.testng.annotations.Test;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -9,11 +10,11 @@ public class StringPrograms {
     @Test
     public static void RemoveDuplicateCharacterInGivenString() {
         String str = "rahulpatidar";
-        char c[] = str.toCharArray();
+        char[] c = str.toCharArray();
         List<Character> list = new ArrayList<Character>();
 
         for (int i = 0; i < c.length; i++) {
-            for (int j = i+1; j < c.length; j++) { // checking in same array, so will start from next number
+            for (int j = i + 1; j < c.length; j++) { // checking in same array, so will start from next number
                 if (c[i] != c[j]) {
                     if (!list.contains(c[i])) {
                         list.add(c[i]);
@@ -33,7 +34,7 @@ public class StringPrograms {
     @Test
     public static void RemoveDuplicateCharacterInGivenString2ndWay() {
         String str = "rahulpatidar";
-        char ch[] = str.toCharArray();
+        char[] ch = str.toCharArray();
 
         Set<Character> set = new HashSet<>(); // set can not contain duplicates
         StringBuilder result = new StringBuilder();
@@ -50,7 +51,7 @@ public class StringPrograms {
     @Test
     public static void RemoveDuplicateWord() {
         String input = "Welcome to Java Session Java Session Session Java";
-        String str[] = input.split(" ");
+        String[] str = input.split(" ");
 
         Set<String> set = new HashSet<>();
         StringBuilder result = new StringBuilder();
@@ -69,6 +70,8 @@ public class StringPrograms {
         String input = "Welcome to Java Session Java Session Session Java";
         String[] words = input.split(" ");
 
+        System.out.println(Arrays.asList(words));
+
         Set<String> uniqueWords = new HashSet<>(Arrays.asList(words));
         System.out.println(uniqueWords);
 
@@ -79,28 +82,31 @@ public class StringPrograms {
     @Test
     public static void printDuplicateWord() {
         String input = "Welcome to Java Session Java Session Session Java";
-        String str[] = input.split(" ");
+        String[] str = input.split(" ");
 
         Set<String> unique = new HashSet<>();
-        Set<String> set = new HashSet<>();
+        Set<String> duplicate = new HashSet<>();
 
         for (String word : str) {
-          if (!unique.add(word)) {
-              set.add(word);
-          }
+            if (!unique.add(word)) {
+                duplicate.add(word);
+            }
         }
-        System.out.println(set);
+        System.out.println(duplicate);
+
+        String joinedString = String.join(" ", duplicate);
+        System.out.println(joinedString);
     }
 
     @Test
     public static void printWordCount() {
         String str = "rahul patidar rahul is my is";
-        String ar[] = str.split(" ");
+        String[] ar = str.split(" ");
 
-        Map<String, Integer>map=new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
 
-        for(int i=0; i< ar.length; i++) {
-            int count=0;
+        for (int i = 0; i < ar.length; i++) {
+            int count = 0;
             for (int j = 0; j < ar.length; j++) {
                 if (ar[i].equals(ar[j])) {
                     count++;
@@ -114,14 +120,14 @@ public class StringPrograms {
     @Test
     public static void printCharacterCount() {
         String str = "rahulpatidar";
-        char ar[] = str.toCharArray();
+        char[] ar = str.toCharArray();
 
-        Map<Character, Integer>map=new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
 
-        for(int i=0; i< ar.length; i++) {
-            int count=0;
+        for (int i = 0; i < ar.length; i++) {
+            int count = 0;
             for (int j = 0; j < ar.length; j++) {
-                if (ar[i]==ar[j]) {
+                if (ar[i] == ar[j]) {
                     count++;
                 }
                 map.put(ar[i], count);
@@ -134,13 +140,11 @@ public class StringPrograms {
     public static void ConvertFirstCharacterToUpperCase() {
         String input = "hello how are you";
         String[] words = input.split(" ");
-        StringBuilder sb = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         for (String word : words) {
-            sb.append(word.substring(0, 1).toUpperCase()).append(word.substring(1)).append(" ");
+            result.append(word.substring(0, 1).toUpperCase()).append(word.substring(1)).append(" ");
         }
-        String output = sb.toString().trim();
-        System.out.println(output);
-
+        System.out.println(result);
     }
 
     @Test
@@ -156,7 +160,7 @@ public class StringPrograms {
     }
 
     @Test
-    public static void reverseAllWordOfString() {
+    public static void reverseAllCharacterOfWordOfString() {
         //Input: hello how are you
         //Output: uoy era woh olleh
 
@@ -177,49 +181,45 @@ public class StringPrograms {
         //Output: olleh woh era uoy
 
         String input = "hello how are you";
-//        String str[] = input.split(" ");
-//        StringBuilder result =new StringBuilder();
-//
-//        for (String word: str){
-//            result.append(word).reverse();
-//        }
-//
-//        System.out.println("Input: " + input);
-//        System.out.println("Output: " + result.toString());
-    }
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
 
+        for (String word : words) {
+            result.append(new StringBuilder(word).reverse() + " ");
+        }
+        System.out.println("Output: " + result);
+    }
 
     @Test
     public static void insertAnyWordInString() {
         String input = "my name is Rahul";
         String wordToInsert = "123";
         int index = input.indexOf("Rahul");
-        StringBuilder sb = new StringBuilder(input);
-        sb.insert(index,wordToInsert+ " ");
-        String output = sb.toString();
-        System.out.println(output);
-
+        StringBuilder result = new StringBuilder(input);
+        result.insert(index, wordToInsert + " ");
+        System.out.println(result);
     }
+
     @Test
     public static void PallindromString() {
-
-        String str="rar";
-        String rev=new StringBuffer(str).reverse().toString();
+        String str = "rar";
+        String rev = new StringBuffer(str).reverse().toString();
 
         if (str.equalsIgnoreCase(rev)) {
             System.out.println("string is pallindrom");
-        }
-        else
+        } else
             System.out.println("not pallindrom");
     }
+
     @Test
     public static void PallindromString2ndWay() {
 
         String str = "rar";
         String rev = "";
 
-        for (int i = str.length() - 1; i >= 0; i--)
+        for (int i = str.length() - 1; i >= 0; i--) {
             rev = rev + str.charAt(i);
+        }
 
         if (str.equals(rev))
             System.out.println(str + " is a palindrome");
@@ -227,6 +227,7 @@ public class StringPrograms {
             System.out.println(str + " is not a palindrome");
 
     }
+
     @Test
     public static void reverseString() {
         String str = "Rahul Patidar";
@@ -242,41 +243,42 @@ public class StringPrograms {
         StringBuilder sb = new StringBuilder(str);
         System.out.println(sb.reverse());
     }
+
     @Test
-    public static void appendAllCharacterWIthDelimeter(){
-        String s[] = {"a", "c", "f"};
+    public static void appendAllCharacterWIthDelimeter() {
+        String[] s = {"a", "c", "f"};
         String s1 = String.join("|", s);
         System.out.println(s1);
 
         String s2 = Arrays.asList(s).stream().collect(Collectors.joining("@"));
         System.out.println(s2);
 
-        int a[] = {2,4,5,6};
-        String a1 = Arrays.asList(2,4,5,6).stream().map(e-> String.valueOf(e))
+        int[] a = {2, 4, 5, 6};
+        String a1 = Arrays.asList(2, 4, 5, 6).stream().map(e -> String.valueOf(e))
                 .collect(Collectors.joining(""));
         System.out.println(a1);
     }
 
     @Test
     public static void sumOfNumbersInGivenString() {
-		String str = "my name 21 is 35 rahul";
-		int sum = 0;
-		String[] words = str.split(" ");
-		for (String word : words) {
-			try {
-				int num = Integer.parseInt(word);
-				sum = sum+ num;
-			} catch (NumberFormatException e) {
-				// not a number
-			}
-		}
-		System.out.println("Sum of numbers in string: " + sum);
-	}
+        String str = "my name 21 is 35 rahul";
+        int sum = 0;
+        String[] words = str.split(" ");
+        for (String word : words) {
+            try {
+                int num = Integer.parseInt(word);
+                sum = sum + num;
+            } catch (NumberFormatException e) {
+                // not a number
+            }
+        }
+        System.out.println("Sum of numbers in string: " + sum);
+    }
 
     @Test
     public static void FirstNonRepeatedCharacterinString() {
         String s = "aabbbcdddd";
-        char ch[] = s.toCharArray();
+        char[] ch = s.toCharArray();
         for (char c : ch) {
             if (s.indexOf(c) == s.lastIndexOf(c)) {
                 System.out.println("First non-repeat char = " + c);
@@ -284,4 +286,26 @@ public class StringPrograms {
             }
         }
     }
+
+    @Test
+    public static void AnagramChecker() {
+        String str1 = "listen";
+        String str2 = "silent1";
+        str1 = str1.toLowerCase().replaceAll("\\s", "");
+        str2 = str2.toLowerCase().replaceAll("\\s", "");
+        if (str1.length() != str2.length()) {
+            System.out.println("Not an anagram");
+        } else {
+            char[] charArray1 = str1.toCharArray();
+            char[] charArray2 = str2.toCharArray();
+            Arrays.sort(charArray1);
+            Arrays.sort(charArray2);
+            if (Arrays.equals(charArray1, charArray2)) {
+                System.out.println("An anagram");
+            } else {
+                System.out.println("Not an anagram");
+            }
+        }
+    }
+
 }

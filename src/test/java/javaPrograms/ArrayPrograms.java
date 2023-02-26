@@ -1,9 +1,7 @@
 package javaPrograms;
 
 import org.testng.annotations.Test;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ArrayPrograms {
 
@@ -50,6 +48,21 @@ public class ArrayPrograms {
         }
         System.out.println(list);
     }
+
+    @Test()
+    public static void RemoveDuplicateFromArray2ndWay() {
+        int[] a = {2, 4, 6, 2, 77, 4};
+
+        Set<Integer> set = new HashSet<>();
+
+        for (int arr: a){
+            if(!set.contains(arr)){
+                set.add(arr);
+            }
+        }
+        System.out.println(set);
+    }
+
 
     @Test()
     public static void LargestInArray() {
