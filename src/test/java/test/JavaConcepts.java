@@ -1,4 +1,4 @@
-package javaPrograms;
+package test;
 
 public class JavaConcepts {
 }

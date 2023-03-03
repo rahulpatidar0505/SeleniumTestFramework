@@ -1,7 +1,6 @@
-package javaPrograms;
+package test;
 
 import org.testng.annotations.Test;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -77,6 +76,25 @@ public class StringPrograms {
 
         String output = String.join(" ", uniqueWords);
         System.out.println(output);
+    }
+
+    @Test
+    public static void printDuplicateCaracter() {
+        String input = "WelcometoJavaSession";
+        char[] c = input.toCharArray();
+
+        Set<Character> unique = new HashSet<>();
+        Set<Character> duplicate = new HashSet<>();
+
+        for (Character ch : c) {
+            if (!unique.add(ch)) {
+                duplicate.add(ch);
+            }
+        }
+        System.out.println(duplicate);
+
+//        String joinedString = String.join(" ", duplicate);
+//        System.out.println(joinedString);
     }
 
     @Test
@@ -160,7 +178,7 @@ public class StringPrograms {
     }
 
     @Test
-    public static void reverseAllCharacterOfWordOfString() {
+    public static void reversString() {
         //Input: hello how are you
         //Output: uoy era woh olleh
 
@@ -269,7 +287,7 @@ public class StringPrograms {
                 int num = Integer.parseInt(word);
                 sum = sum + num;
             } catch (NumberFormatException e) {
-                // not a number
+//                System.out.println("not a number");
             }
         }
         System.out.println("Sum of numbers in string: " + sum);

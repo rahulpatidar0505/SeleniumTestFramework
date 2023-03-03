@@ -1,4 +1,4 @@
-package javaPrograms;
+package test;
 
 import org.testng.annotations.Test;
 import java.util.*;
@@ -52,7 +52,6 @@ public class ArrayPrograms {
     @Test()
     public static void RemoveDuplicateFromArray2ndWay() {
         int[] a = {2, 4, 6, 2, 77, 4};
-
         Set<Integer> set = new HashSet<>();
 
         for (int arr: a){
@@ -62,7 +61,6 @@ public class ArrayPrograms {
         }
         System.out.println(set);
     }
-
 
     @Test()
     public static void LargestInArray() {
@@ -97,7 +95,7 @@ public class ArrayPrograms {
         int[] a = {3, 7, 2, 9, 1, 44, 31};
 
         for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < a.length; j++) {
+            for (int j = i + 1; j < a.length; j++) { // checking in same array, so will start from next number
                 if (a[i] > a[j]) {
                     int temp;
                     temp = a[i];
@@ -113,7 +111,7 @@ public class ArrayPrograms {
         int[] a = {3, 7, 2, 9, 1, 44, 31};
 
         for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < a.length; j++) {
+            for (int j = i + 1; j < a.length; j++) { // checking in same array, so will start from next number
                 if (a[i] < a[j]) {
                     int temp;
                     temp = a[i];
